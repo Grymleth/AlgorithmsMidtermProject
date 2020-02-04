@@ -159,10 +159,13 @@
                 <Component class="javax.swing.JTextArea" name="cmdPane">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Consolas" size="24" style="0"/>
+                    </Property>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="cmdPane.setLineWrap(true);&#xa;cmdPane.setEditable(false);"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="cmdPane.setLineWrap(true);&#xa;cmdPane.setEditable(true);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

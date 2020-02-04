@@ -86,10 +86,11 @@ public class MainUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cmdPane.setColumns(20);
+        cmdPane.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         cmdPane.setRows(5);
         jScrollPane3.setViewportView(cmdPane);
         cmdPane.setLineWrap(true);
-        cmdPane.setEditable(false);
+        cmdPane.setEditable(true);
 
         javax.swing.GroupLayout selectionPaneLayout = new javax.swing.GroupLayout(selectionPane);
         selectionPane.setLayout(selectionPaneLayout);

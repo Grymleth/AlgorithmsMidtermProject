@@ -63,4 +63,8 @@ public class Base26 {
         return array;
     }
     
+    public int length(){
+        return length;
+    }
+    
 }
