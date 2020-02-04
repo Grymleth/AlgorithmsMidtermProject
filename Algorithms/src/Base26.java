@@ -8,7 +8,7 @@ public class Base26 {
     
     public Base26(){
         digit = new ArrayList<>();
-        digit.add(1);
+        digit.add(0);
         length = 1;
         
     }
@@ -42,8 +42,9 @@ public class Base26 {
         Base26 num = new Base26();
         
         for(int i=0;i<256;i++){
-            num.increment();
+            
             num.print();
+            num.increment();
         }      
     }
     
@@ -54,7 +55,7 @@ public class Base26 {
         int j=length-1;
         
         while(i < length){
-            array[i] = digit.get(j)-1;
+            array[i] = digit.get(j);
             i++;
             j--;
         }

@@ -3,7 +3,6 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JLabel;
 
 /*
@@ -52,18 +51,23 @@ public class MainUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jLabel1 = new javax.swing.JLabel();
         algoPane = new javax.swing.JTabbedPane();
-        bubblePane = new javax.swing.JPanel();
         selectionPane = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        cmdPane = new javax.swing.JTextArea();
         insertionPane = new javax.swing.JPanel();
-        sortBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         mergePane = new javax.swing.JPanel();
+        bubblePane = new javax.swing.JPanel();
         inputLbl = new javax.swing.JLabel();
         inputFld = new javax.swing.JTextField();
         insertBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
         valuesScroll = new javax.swing.JScrollPane();
         valuesPane = new javax.swing.JPanel();
+        sortBtn = new javax.swing.JButton();
         aboutBar = new javax.swing.JMenuBar();
         aboutItem = new javax.swing.JMenu();
 
@@ -77,56 +81,55 @@ public class MainUI extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout bubblePaneLayout = new javax.swing.GroupLayout(bubblePane);
-        bubblePane.setLayout(bubblePaneLayout);
-        bubblePaneLayout.setHorizontalGroup(
-            bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 777, Short.MAX_VALUE)
-        );
-        bubblePaneLayout.setVerticalGroup(
-            bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
-        );
-
-        algoPane.addTab("Bubble Sort", bubblePane);
+        cmdPane.setColumns(20);
+        cmdPane.setRows(5);
+        jScrollPane3.setViewportView(cmdPane);
+        cmdPane.setLineWrap(true);
+        cmdPane.setEditable(false);
 
         javax.swing.GroupLayout selectionPaneLayout = new javax.swing.GroupLayout(selectionPane);
         selectionPane.setLayout(selectionPaneLayout);
         selectionPaneLayout.setHorizontalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 777, Short.MAX_VALUE)
+            .addGroup(selectionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addContainerGap())
         );
         selectionPaneLayout.setVerticalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
+            .addGroup(selectionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
         );
 
         algoPane.addTab("Selection Sort", selectionPane);
 
-        sortBtn.setText("SORT");
-        sortBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortBtnActionPerformed(evt);
-            }
-        });
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setEditable(false);
 
         javax.swing.GroupLayout insertionPaneLayout = new javax.swing.GroupLayout(insertionPane);
         insertionPane.setLayout(insertionPaneLayout);
         insertionPaneLayout.setHorizontalGroup(
             insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertionPaneLayout.createSequentialGroup()
-                .addContainerGap(700, Short.MAX_VALUE)
-                .addComponent(sortBtn)
-                .addContainerGap())
+            .addGroup(insertionPaneLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         insertionPaneLayout.setVerticalGroup(
             insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertionPaneLayout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
-                .addComponent(sortBtn)
-                .addContainerGap())
+            .addGroup(insertionPaneLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         algoPane.addTab("Insertion Sort", insertionPane);
@@ -135,14 +138,27 @@ public class MainUI extends javax.swing.JFrame {
         mergePane.setLayout(mergePaneLayout);
         mergePaneLayout.setHorizontalGroup(
             mergePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 777, Short.MAX_VALUE)
+            .addGap(0, 556, Short.MAX_VALUE)
         );
         mergePaneLayout.setVerticalGroup(
             mergePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
+            .addGap(0, 339, Short.MAX_VALUE)
         );
 
         algoPane.addTab("Merge Sort", mergePane);
+
+        javax.swing.GroupLayout bubblePaneLayout = new javax.swing.GroupLayout(bubblePane);
+        bubblePane.setLayout(bubblePaneLayout);
+        bubblePaneLayout.setHorizontalGroup(
+            bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 556, Short.MAX_VALUE)
+        );
+        bubblePaneLayout.setVerticalGroup(
+            bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 339, Short.MAX_VALUE)
+        );
+
+        algoPane.addTab("Bubble Sort", bubblePane);
 
         inputLbl.setText("Input:");
 
@@ -163,6 +179,13 @@ public class MainUI extends javax.swing.JFrame {
         valuesPane.setLayout(new java.awt.GridBagLayout());
         valuesScroll.setViewportView(valuesPane);
 
+        sortBtn.setText("SORT");
+        sortBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortBtnActionPerformed(evt);
+            }
+        });
+
         aboutItem.setText("About");
         aboutBar.add(aboutItem);
 
@@ -181,9 +204,13 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(insertBtn)
                 .addGap(18, 18, 18)
                 .addComponent(clearBtn)
+                .addGap(18, 18, 18)
+                .addComponent(sortBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(valuesScroll)
-            .addComponent(algoPane, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,11 +220,13 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(inputLbl)
                     .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(insertBtn)
-                    .addComponent(clearBtn))
+                    .addComponent(clearBtn)
+                    .addComponent(sortBtn))
                 .addGap(18, 18, 18)
                 .addComponent(valuesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(algoPane, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
+                .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,6 +236,7 @@ public class MainUI extends javax.swing.JFrame {
         valuesGBC.gridy=0;
         valuesGBC.gridx=0;
         valuesPane.removeAll();
+        cmdPane.setText("");
         valuesPane.setLayout(new java.awt.GridBagLayout());
         valuesPane.revalidate();
         valuesPane.repaint();
@@ -216,6 +246,7 @@ public class MainUI extends javax.swing.JFrame {
         Integer newValue = Integer.parseInt(inputFld.getText());
         JLabel newLbl = new JLabel(newValue.toString());
         values.add(newValue);
+        inputFld.setText("");
         
         System.out.println("Grid X: " + valuesGBC.gridx);
         insertValue(newLbl, valuesPane, valuesGBC);
@@ -224,19 +255,39 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_insertBtnActionPerformed
 
     private void sortBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBtnActionPerformed
-        int n = values.size();
-        JLabel[] sorted = new JLabel[n];
-        JLabel label;
-        Iterator it = values.iterator();
-        Integer x;
-        for(int i=0; it.hasNext();i++){
-            x = (Integer) it.next();
-            sorted[i] = new JLabel(x.toString());
-            insertionPane.add(sorted[i]);
-        }
-        
-        insertionPane.revalidate();
-        insertionPane.repaint();
+        if(selectionPane.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
+            cmdPane.setText("");
+            int i;
+            int j;
+            int temp;
+            int num = values.size();
+            int array[] = new int[num];
+            String line = "";
+            for (i = 0; i < num; i++) {
+                array[i] = values.get(i);
+            }
+
+            for (i = 0; i < (num - 1); i++) {
+                for (j = 0; j < num - i - 1; j++) {
+                    if (array[j] > array[j + 1]) {
+                        temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+
+                for (int l = 0; l < num; l++) {
+                    line += " " + array[l];
+                }
+                line+="\n";
+                cmdPane.append(line);
+            }
+
+            System.out.println("Sorted list of integers:");
+
+            for (i = 0; i < num; i++)
+                System.out.println(array[i]);
+            }
         
     }//GEN-LAST:event_sortBtnActionPerformed
 
@@ -249,13 +300,13 @@ public class MainUI extends javax.swing.JFrame {
         
         gbc.insets = new Insets(5,5,5,5);
         
+        gbc.gridx++;
         if(gbc.gridx % 10 == 0){
             gbc.gridx = 0;
             gbc.gridy++;
         }
         
         container.add(label,gbc);
-        gbc.gridx++;
     }
     
     /**
@@ -292,21 +343,26 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar aboutBar;
     private javax.swing.JMenu aboutItem;
     private javax.swing.JTabbedPane algoPane;
     private javax.swing.JPanel bubblePane;
     private javax.swing.JButton clearBtn;
+    private javax.swing.JTextArea cmdPane;
     private javax.swing.JTextField inputFld;
     private javax.swing.JLabel inputLbl;
     private javax.swing.JButton insertBtn;
     private javax.swing.JPanel insertionPane;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel mergePane;
     private javax.swing.JPanel selectionPane;
     private javax.swing.JButton sortBtn;
