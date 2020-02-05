@@ -55,6 +55,7 @@ public class MainUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        orderBtnGroup = new javax.swing.ButtonGroup();
         cardPanel = new javax.swing.JPanel();
         titlePanel = new javax.swing.JPanel();
         titleLbl = new javax.swing.JLabel();
@@ -85,6 +86,8 @@ public class MainUI extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
         sortBtn = new javax.swing.JButton();
         sortingBackBtn = new javax.swing.JButton();
+        ascendingBtn = new javax.swing.JRadioButton();
+        descendingBtn = new javax.swing.JRadioButton();
         bruteforcePanel = new javax.swing.JPanel();
         crackBtn = new javax.swing.JButton();
         hashLbl = new javax.swing.JLabel();
@@ -106,6 +109,9 @@ public class MainUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        orderBtnGroup.add(ascendingBtn);
+        orderBtnGroup.add(descendingBtn);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,13 +164,11 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(titlePanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(titlePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(titleLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(titleLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(titleLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(titleLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(titleLbl5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(titlePanelLayout.createSequentialGroup()
@@ -316,6 +320,15 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        ascendingBtn.setText("ASCENDING");
+
+        descendingBtn.setText("DESCENDING");
+        descendingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descendingBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout sortingPanelLayout = new javax.swing.GroupLayout(sortingPanel);
         sortingPanel.setLayout(sortingPanelLayout);
         sortingPanelLayout.setHorizontalGroup(
@@ -333,6 +346,10 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(clearBtn)
                 .addGap(18, 18, 18)
                 .addComponent(sortBtn)
+                .addGap(18, 18, 18)
+                .addGroup(sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ascendingBtn)
+                    .addComponent(descendingBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(sortingBackBtn)
                 .addContainerGap())
@@ -340,19 +357,28 @@ public class MainUI extends javax.swing.JFrame {
         sortingPanelLayout.setVerticalGroup(
             sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sortingPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(insertBtn)
-                    .addComponent(clearBtn)
-                    .addComponent(sortBtn)
-                    .addComponent(inputLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sortingBackBtn))
-                .addGap(26, 26, 26)
+                .addGroup(sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sortingPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(insertBtn)
+                            .addComponent(clearBtn)
+                            .addComponent(sortBtn)
+                            .addComponent(inputLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sortingBackBtn)))
+                    .addGroup(sortingPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(ascendingBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(descendingBtn)))
+                .addGap(18, 18, 18)
                 .addComponent(valuesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        ascendingBtn.setSelected(true);
 
         cardPanel.add(sortingPanel, "SORTING");
 
@@ -496,15 +522,16 @@ public class MainUI extends javax.swing.JFrame {
 
     private void sortBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBtnActionPerformed
         int[][] passes;
+        boolean order = ascendingBtn.isSelected();
         
         if(insertionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
-            passes = getInsertion(values);
+            passes = getInsertion(values, order);
             
             layoutSortPanel(insertionPane, passes);
             print2d(passes);
         }
         else if(bubbleScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
-            passes = getBubble(values);
+            passes = getBubble(values, order);
             
             layoutSortPanel(bubblePane, passes);
             print2d(passes);
@@ -550,6 +577,10 @@ public class MainUI extends javax.swing.JFrame {
         refresh();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void descendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descendingBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descendingBtnActionPerformed
+
     /**
      * @param label the label to be added to the container
      * @param container the container that will receive the label
@@ -571,9 +602,10 @@ public class MainUI extends javax.swing.JFrame {
     /**
      * 
      * @param values array of values to be sorted 
+     * @param order determines whether ascending or descending
      * @return a 2d array that contains all the insertion sort passes
      */
-    public int[][] getInsertion(ArrayList<Integer> values){
+    public int[][] getInsertion(ArrayList<Integer> values, boolean order){
         final int col = values.size();
         int row;
         Integer [] pass = new Integer[col];
@@ -585,22 +617,41 @@ public class MainUI extends javax.swing.JFrame {
         ArrayList<Integer[]> passes = new ArrayList<>();
         
         int i, j, temp;
+        if(order){
+            for (i = 1; i < col; ++i) { 
+                temp = pass[i]; 
+                j = i - 1; 
 
-        for (i = 1; i < col; ++i) { 
-            temp = pass[i]; 
-            j = i - 1; 
-  
-            /* Move elements of arr[0..i-1], that are 
-               greater than key, to one position ahead 
-               of their current position */
-            while (j >= 0 && pass[j] > temp) { 
-                pass[j + 1] = pass[j]; 
-                j = j - 1; 
+                /* Move elements of arr[0..i-1], that are 
+                   greater than key, to one position ahead 
+                   of their current position */
+                while (j >= 0 && pass[j] > temp) { 
+                    pass[j + 1] = pass[j]; 
+                    j = j - 1; 
+                } 
+                pass[j + 1] = temp; 
+                passes.add(pass.clone());
+                printArray(pass);
             } 
-            pass[j + 1] = temp; 
-            passes.add(pass.clone());
-            printArray(pass);
-        } 
+        }
+        else{
+            for (i = 1; i < col; ++i) { 
+                temp = pass[i]; 
+                j = i - 1; 
+
+                /* Move elements of arr[0..i-1], that are 
+                   greater than key, to one position ahead 
+                   of their current position */
+                while (j >= 0 && pass[j] < temp) { 
+                    pass[j + 1] = pass[j]; 
+                    j = j - 1; 
+                } 
+                pass[j + 1] = temp; 
+                passes.add(pass.clone());
+                printArray(pass);
+            } 
+        }
+        
         
         row = passes.size();
 
@@ -618,9 +669,10 @@ public class MainUI extends javax.swing.JFrame {
     /**
      * 
      * @param values array of values to be sorted 
+     * @param order determines if descending or ascending
      * @return a 2d array that contains all the bubble sort passes
      */
-    public int[][] getBubble(ArrayList<Integer> values){
+    public int[][] getBubble(ArrayList<Integer> values, boolean order){
         final int col = values.size();
         int row;
         Integer [] pass = new Integer[col];
@@ -630,18 +682,42 @@ public class MainUI extends javax.swing.JFrame {
         }
         
         ArrayList<Integer[]> passes = new ArrayList<>();
-        
+        boolean isSwap;
         int i, j, temp;
-        for (i = 0; i < (col - 1); i++) {
-            for (j = 0; j < col - i - 1; j++) {
-                if (pass[j] > pass[j + 1]) {
-                    temp = pass[j];
-                    pass[j] = pass[j + 1];
-                    pass[j + 1] = temp;
+        
+        if(order){
+            for (i = 0; i < (col - 1); i++) {
+                isSwap = false;
+                for (j = 0; j < col - i - 1; j++) {
+                    if (pass[j] > pass[j + 1]) {
+                        isSwap = true;
+                        temp = pass[j];
+                        pass[j] = pass[j + 1];
+                        pass[j + 1] = temp;
+                    }
                 }
+                passes.add(pass.clone());
+                if(!isSwap)
+                    break;
             }
-            passes.add(pass.clone());
         }
+        else{
+            for (i = 0; i < (col - 1); i++) {
+                isSwap = false;
+                for (j = 0; j < col - i - 1; j++) {
+                    if (pass[j] < pass[j + 1]) {
+                        isSwap = true;
+                        temp = pass[j];
+                        pass[j] = pass[j + 1];
+                        pass[j + 1] = temp;
+                    }
+                }
+                passes.add(pass.clone());
+                if(!isSwap)
+                    break;
+            }
+        }
+        
         
         row = passes.size();
 
@@ -703,6 +779,23 @@ public class MainUI extends javax.swing.JFrame {
             gbc.gridx = 1;
             panel.add(values,gbc);
         }
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+        gbc.gridx = 0;
+        gbc.gridy += 1;
+        label = new JLabel("Sorted: ");
+        panel.add(label,gbc);
+        values = new JPanel();
+        values.setBorder(border);
+        gbc.gridx = 1;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        for(int j=0;j<col;j++){
+            label = new JLabel(""+passes[passes.length-1][j]);
+            values.add(label);
+        }   
+        panel.add(values,gbc);
+        refresh();
     }
     
     public void addValue(){
@@ -829,6 +922,7 @@ public class MainUI extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane algoPane;
+    private javax.swing.JRadioButton ascendingBtn;
     private javax.swing.JButton bruteforceBackBtn;
     private javax.swing.JPanel bruteforcePanel;
     private javax.swing.JPanel bubblePane;
@@ -838,6 +932,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel combPane;
     private javax.swing.JScrollPane combScroll;
     private javax.swing.JButton crackBtn;
+    private javax.swing.JRadioButton descendingBtn;
     private javax.swing.JTextArea displayArea;
     private javax.swing.JScrollPane displayScroll;
     private javax.swing.JLabel hashLbl;
@@ -849,6 +944,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel md5HashLbl;
+    private javax.swing.ButtonGroup orderBtnGroup;
     private javax.swing.JPasswordField passFld;
     private javax.swing.JLabel passLbl;
     private javax.swing.JPanel selectionPane;
