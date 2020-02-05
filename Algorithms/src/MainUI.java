@@ -405,7 +405,7 @@ public class MainUI extends javax.swing.JFrame {
 
         displayArea.setEditable(false);
 
-        passLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        passLbl.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         passLbl.setText("Enter Password");
 
         passFld.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -479,7 +479,7 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(md5HashLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(displayScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -523,19 +523,25 @@ public class MainUI extends javax.swing.JFrame {
     private void sortBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBtnActionPerformed
         int[][] passes;
         boolean order = ascendingBtn.isSelected();
+        try {
+            if (insertionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))) {
+                passes = getInsertion(values, order);
+
+                layoutSortPanel(insertionPane, passes);
+                print2d(passes);
+            } else if (bubbleScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))) {
+                passes = getBubble(values, order);
+
+                layoutSortPanel(bubblePane, passes);
+                print2d(passes);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(rootPane,
+                    "Please, enter values before sorting",
+                    "No Input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
         
-        if(insertionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
-            passes = getInsertion(values, order);
-            
-            layoutSortPanel(insertionPane, passes);
-            print2d(passes);
-        }
-        else if(bubbleScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
-            passes = getBubble(values, order);
-            
-            layoutSortPanel(bubblePane, passes);
-            print2d(passes);
-        }
         
         revalidate();
         repaint();
@@ -569,16 +575,17 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bruteforceBackBtnActionPerformed
 
     private void passFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFldActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_passFldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        passFld.setText("");
         hashPassword();
         refresh();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void descendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descendingBtnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_descendingBtnActionPerformed
 
     /**
@@ -799,8 +806,21 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     public void addValue(){
-        Integer newValue = Integer.parseInt(inputFld.getText());
-        JLabel newLbl = new JLabel(newValue.toString());
+        Integer newValue;
+        JLabel newLbl;
+        try{
+            newValue = Integer.parseInt(inputFld.getText());
+            newLbl = new JLabel(newValue.toString());
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(rootPane, 
+                    "Please enter only integers",
+                    "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
         values.add(newValue);
         inputFld.setText("");
         System.out.println("Grid X: " + valuesGBC.gridx);
@@ -822,17 +842,30 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     public void hashPassword(){
-        hash = Hashing.getMd5(passFld.getPassword());
-        hashLbl.setText(hash);
+        try{
+            char[] password = passFld.getPassword();
+            for (int i = 0; i < password.length; i++) {
+                if(password[i] < 65 && password[i] > 90)
+                    throw new NotAlphabetException();
+            }
+            hash = Hashing.getMd5(passFld.getPassword());
+            hashLbl.setText(hash);
+        }
+        catch(NotAlphabetException e){
+            System.out.println("exception");
+            JOptionPane.showMessageDialog(rootPane,
+                    "Please, input only letters of the alphabet",
+                    "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public String getPlain(String md5){
         String bruteforce;
-        
         int[] array;
         StringBuilder permute = new StringBuilder(" ");
         Base26 num = new Base26();
-        String lines = new String("MD5 HASH\tPLAINTEXT\n");
+        String lines = new String("MD5 HASH\t\t\t\tPLAINTEXT\n");
         do{
             
             array = num.toIntArray();
