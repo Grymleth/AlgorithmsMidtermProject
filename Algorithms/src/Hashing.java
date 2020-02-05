@@ -8,7 +8,30 @@ public class Hashing {
     public static String getMd5(String input) throws RuntimeException{
         try{
             MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(input.getBytes());
+            byte[] messageDigest = md.digest(input.toUpperCase().getBytes());
+            
+            BigInteger no = new BigInteger(1, messageDigest);
+            
+            String hashtext = no.toString(16);
+            while(hashtext.length() < 32){
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        }
+        catch(NoSuchAlgorithmException e){
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public static String getMd5(char[] input) throws RuntimeException{
+        try{
+            StringBuilder plainText = new StringBuilder("");
+            
+            for(int i=0;i<input.length;i++){
+                plainText.append(input[i]);
+            }
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(plainText.toString().toUpperCase().getBytes());
             
             BigInteger no = new BigInteger(1, messageDigest);
             

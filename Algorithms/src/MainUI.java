@@ -1,12 +1,15 @@
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /*
@@ -26,7 +29,7 @@ public class MainUI extends javax.swing.JFrame {
      */
     private final ArrayList<JLabel> valuesLbl;
     private final ArrayList<Integer> values;
-    
+    private String hash;
     //GridBagConstraints for values panel
     private GridBagConstraints valuesGBC;
     
@@ -34,7 +37,7 @@ public class MainUI extends javax.swing.JFrame {
      * Creates new form MainUI
      */
     public MainUI() {
-        super("Sorting Algorithms");
+        super("ALGORITHMS");
         valuesLbl = new ArrayList<>();
         values = new ArrayList<>();
         
@@ -51,83 +54,195 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        cardPanel = new javax.swing.JPanel();
+        titlePanel = new javax.swing.JPanel();
+        titleLbl = new javax.swing.JLabel();
+        titleLbl1 = new javax.swing.JLabel();
+        titleLbl2 = new javax.swing.JLabel();
+        titleLbl3 = new javax.swing.JLabel();
+        titleLbl4 = new javax.swing.JLabel();
+        titleLbl5 = new javax.swing.JLabel();
+        titleLbl6 = new javax.swing.JLabel();
+        titleLbl7 = new javax.swing.JLabel();
+        titleSortingBtn = new javax.swing.JButton();
+        titleBruteforceBtn = new javax.swing.JButton();
+        sortingPanel = new javax.swing.JPanel();
+        valuesScroll = new javax.swing.JScrollPane();
+        valuesPane = new javax.swing.JPanel();
         algoPane = new javax.swing.JTabbedPane();
         insertionScroll = new javax.swing.JScrollPane();
         insertionPane = new javax.swing.JPanel();
-        combScroll = new javax.swing.JScrollPane();
-        combPane = new javax.swing.JPanel();
         selectionScroll = new javax.swing.JScrollPane();
         selectionPane = new javax.swing.JPanel();
         bubbleScroll = new javax.swing.JScrollPane();
         bubblePane = new javax.swing.JPanel();
+        combScroll = new javax.swing.JScrollPane();
+        combPane = new javax.swing.JPanel();
         inputLbl = new javax.swing.JLabel();
         inputFld = new javax.swing.JTextField();
         insertBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
-        valuesScroll = new javax.swing.JScrollPane();
-        valuesPane = new javax.swing.JPanel();
         sortBtn = new javax.swing.JButton();
-        aboutBar = new javax.swing.JMenuBar();
-        aboutItem = new javax.swing.JMenu();
+        sortingBackBtn = new javax.swing.JButton();
+        bruteforcePanel = new javax.swing.JPanel();
+        crackBtn = new javax.swing.JButton();
+        hashLbl = new javax.swing.JLabel();
+        md5HashLbl = new javax.swing.JLabel();
+        displayScroll = new javax.swing.JScrollPane();
+        displayArea = new javax.swing.JTextArea();
+        passLbl = new javax.swing.JLabel();
+        passFld = new javax.swing.JPasswordField();
+        bruteforceBackBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
-
-        jLabel1.setText("jLabel1");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        cardPanel.setLayout(new java.awt.CardLayout());
+
+        titleLbl.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl.setText("Candelaria, Aevan");
+
+        titleLbl1.setFont(new java.awt.Font("Consolas", 0, 36)); // NOI18N
+        titleLbl1.setText("ALGORITHMS - MIDTERM PROJECT");
+
+        titleLbl2.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl2.setText("Oresca, Ken Harvey");
+
+        titleLbl3.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl3.setText("Lucas, Kurt Andrew");
+
+        titleLbl4.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl4.setText("Parayaoan, Caselyn");
+
+        titleLbl5.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl5.setText("Prepared by:");
+
+        titleLbl6.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl6.setText("Submitted to:");
+
+        titleLbl7.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        titleLbl7.setText("Sir Hadji Tejuco");
+
+        titleSortingBtn.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        titleSortingBtn.setText("SORTING");
+        titleSortingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titleSortingBtnActionPerformed(evt);
+            }
+        });
+
+        titleBruteforceBtn.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        titleBruteforceBtn.setText("BRUTEFORCE APPLICATION");
+        titleBruteforceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titleBruteforceBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
+        titlePanel.setLayout(titlePanelLayout);
+        titlePanelLayout.setHorizontalGroup(
+            titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titlePanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(titleLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titleLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(titleLbl5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(titleLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(titleLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(titlePanelLayout.createSequentialGroup()
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(titlePanelLayout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(titleSortingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(titleBruteforceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(titleLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+        titlePanelLayout.setVerticalGroup(
+            titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(titleLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(titleSortingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(titleBruteforceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleLbl5)
+                    .addComponent(titleLbl6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleLbl)
+                    .addComponent(titleLbl7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleLbl3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleLbl2)
+                .addGap(18, 18, 18)
+                .addComponent(titleLbl4)
+                .addGap(51, 51, 51))
+        );
+
+        cardPanel.add(titlePanel, "TITLE");
+
+        valuesPane.setLayout(new java.awt.GridBagLayout());
+        valuesScroll.setViewportView(valuesPane);
 
         javax.swing.GroupLayout insertionPaneLayout = new javax.swing.GroupLayout(insertionPane);
         insertionPane.setLayout(insertionPaneLayout);
         insertionPaneLayout.setHorizontalGroup(
             insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGap(0, 764, Short.MAX_VALUE)
         );
         insertionPaneLayout.setVerticalGroup(
             insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 528, Short.MAX_VALUE)
         );
 
         insertionScroll.setViewportView(insertionPane);
 
         algoPane.addTab("Insertion Sort", insertionScroll);
 
-        javax.swing.GroupLayout combPaneLayout = new javax.swing.GroupLayout(combPane);
-        combPane.setLayout(combPaneLayout);
-        combPaneLayout.setHorizontalGroup(
-            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
-        );
-        combPaneLayout.setVerticalGroup(
-            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
-        );
-
-        combScroll.setViewportView(combPane);
-
-        algoPane.addTab("Comb Sort", combScroll);
-
         javax.swing.GroupLayout selectionPaneLayout = new javax.swing.GroupLayout(selectionPane);
         selectionPane.setLayout(selectionPaneLayout);
         selectionPaneLayout.setHorizontalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGap(0, 764, Short.MAX_VALUE)
         );
         selectionPaneLayout.setVerticalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 528, Short.MAX_VALUE)
         );
 
         selectionScroll.setViewportView(selectionPane);
@@ -138,17 +253,33 @@ public class MainUI extends javax.swing.JFrame {
         bubblePane.setLayout(bubblePaneLayout);
         bubblePaneLayout.setHorizontalGroup(
             bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGap(0, 764, Short.MAX_VALUE)
         );
         bubblePaneLayout.setVerticalGroup(
             bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 528, Short.MAX_VALUE)
         );
 
         bubbleScroll.setViewportView(bubblePane);
 
         algoPane.addTab("Bubble Sort", bubbleScroll);
 
+        javax.swing.GroupLayout combPaneLayout = new javax.swing.GroupLayout(combPane);
+        combPane.setLayout(combPaneLayout);
+        combPaneLayout.setHorizontalGroup(
+            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 764, Short.MAX_VALUE)
+        );
+        combPaneLayout.setVerticalGroup(
+            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 528, Short.MAX_VALUE)
+        );
+
+        combScroll.setViewportView(combPane);
+
+        algoPane.addTab("Comb Sort", combScroll);
+
+        inputLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputLbl.setText("Input:");
 
         inputFld.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -171,9 +302,6 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        valuesPane.setLayout(new java.awt.GridBagLayout());
-        valuesScroll.setViewportView(valuesPane);
-
         sortBtn.setText("SORT");
         sortBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,56 +309,185 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        aboutItem.setText("About");
-        aboutBar.add(aboutItem);
+        sortingBackBtn.setText("BACK");
+        sortingBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortingBackBtnActionPerformed(evt);
+            }
+        });
 
-        setJMenuBar(aboutBar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(inputLbl)
+        javax.swing.GroupLayout sortingPanelLayout = new javax.swing.GroupLayout(sortingPanel);
+        sortingPanel.setLayout(sortingPanelLayout);
+        sortingPanelLayout.setHorizontalGroup(
+            sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(valuesScroll)
+            .addComponent(algoPane)
+            .addGroup(sortingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(inputLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(insertBtn)
                 .addGap(18, 18, 18)
                 .addComponent(clearBtn)
                 .addGap(18, 18, 18)
                 .addComponent(sortBtn)
-                .addContainerGap(201, Short.MAX_VALUE))
-            .addComponent(valuesScroll)
-            .addComponent(algoPane)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sortingBackBtn)
+                .addContainerGap())
+        );
+        sortingPanelLayout.setVerticalGroup(
+            sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sortingPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(sortingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertBtn)
+                    .addComponent(clearBtn)
+                    .addComponent(sortBtn)
+                    .addComponent(inputLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortingBackBtn))
+                .addGap(26, 26, 26)
+                .addComponent(valuesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        cardPanel.add(sortingPanel, "SORTING");
+
+        bruteforcePanel.setPreferredSize(new java.awt.Dimension(771, 748));
+
+        crackBtn.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        crackBtn.setText("CRACK");
+        crackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crackBtnActionPerformed(evt);
+            }
+        });
+
+        hashLbl.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        md5HashLbl.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        md5HashLbl.setText("MD5 Hash:");
+
+        displayArea.setColumns(20);
+        displayArea.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        displayArea.setRows(5);
+        displayScroll.setViewportView(displayArea);
+        displayArea.setLineWrap(true);
+
+        displayArea.setEditable(false);
+
+        passLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        passLbl.setText("Enter Password");
+
+        passFld.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        passFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passFldActionPerformed(evt);
+            }
+        });
+
+        bruteforceBackBtn.setText("BACK");
+        bruteforceBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bruteforceBackBtnActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("CONFIRM");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bruteforcePanelLayout = new javax.swing.GroupLayout(bruteforcePanel);
+        bruteforcePanel.setLayout(bruteforcePanelLayout);
+        bruteforcePanelLayout.setHorizontalGroup(
+            bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(displayScroll))
+                    .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                        .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(passLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(md5HashLbl))))
+                        .addGap(18, 18, 18)
+                        .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                                .addComponent(passFld, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                                .addComponent(bruteforceBackBtn))
+                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                                .addComponent(hashLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        bruteforcePanelLayout.setVerticalGroup(
+            bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bruteforceBackBtn)
+                    .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(passFld, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
+                .addGap(18, 18, 18)
+                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(hashLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(md5HashLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(displayScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        cardPanel.add(bruteforcePanel, "BRUTEFORCE");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputLbl)
-                    .addComponent(inputFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(insertBtn)
-                    .addComponent(clearBtn)
-                    .addComponent(sortBtn))
-                .addGap(18, 18, 18)
-                .addComponent(valuesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(algoPane, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
+            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        values.removeAll(values);
         valuesGBC.gridy=0;
         valuesGBC.gridx=0;
         valuesPane.removeAll();
         valuesPane.setLayout(new java.awt.GridBagLayout());
-        valuesPane.revalidate();
-        valuesPane.repaint();
+        
+        insertionPane.removeAll();
+        selectionPane.removeAll();
+        combPane.removeAll();
+        bubblePane.removeAll();
+        
+        revalidate();
+        repaint();
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void insertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertBtnActionPerformed
@@ -245,9 +502,16 @@ public class MainUI extends javax.swing.JFrame {
             
             layoutSortPanel(insertionPane, passes);
             print2d(passes);
-            insertionPane.revalidate();
-            insertionPane.repaint();
         }
+        else if(bubbleScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
+            passes = getBubble(values);
+            
+            layoutSortPanel(bubblePane, passes);
+            print2d(passes);
+        }
+        
+        revalidate();
+        repaint();
             
         
     }//GEN-LAST:event_sortBtnActionPerformed
@@ -256,6 +520,35 @@ public class MainUI extends javax.swing.JFrame {
         if(evt.getKeyChar() == '\n')
             addValue();
     }//GEN-LAST:event_inputFldKeyPressed
+
+    private void titleBruteforceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleBruteforceBtnActionPerformed
+        showCard(cardPanel, "BRUTEFORCE");
+    }//GEN-LAST:event_titleBruteforceBtnActionPerformed
+
+    private void titleSortingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleSortingBtnActionPerformed
+        showCard(cardPanel, "SORTING");
+    }//GEN-LAST:event_titleSortingBtnActionPerformed
+
+    private void sortingBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortingBackBtnActionPerformed
+        showCard(cardPanel, "TITLE");
+    }//GEN-LAST:event_sortingBackBtnActionPerformed
+
+    private void crackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackBtnActionPerformed
+        getPlain(hash);
+    }//GEN-LAST:event_crackBtnActionPerformed
+
+    private void bruteforceBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bruteforceBackBtnActionPerformed
+        showCard(cardPanel, "TITLE");
+    }//GEN-LAST:event_bruteforceBackBtnActionPerformed
+
+    private void passFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passFldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        hashPassword();
+        refresh();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param label the label to be added to the container
@@ -277,8 +570,8 @@ public class MainUI extends javax.swing.JFrame {
     
     /**
      * 
-     * @param values array of values to be sorted
-     * @return a 2d array that contains all the algorithms passes
+     * @param values array of values to be sorted 
+     * @return a 2d array that contains all the insertion sort passes
      */
     public int[][] getInsertion(ArrayList<Integer> values){
         final int col = values.size();
@@ -324,6 +617,47 @@ public class MainUI extends javax.swing.JFrame {
     
     /**
      * 
+     * @param values array of values to be sorted 
+     * @return a 2d array that contains all the bubble sort passes
+     */
+    public int[][] getBubble(ArrayList<Integer> values){
+        final int col = values.size();
+        int row;
+        Integer [] pass = new Integer[col];
+        
+        for (int i = 0; i < col; i++) {
+            pass[i] = values.get(i);
+        }
+        
+        ArrayList<Integer[]> passes = new ArrayList<>();
+        
+        int i, j, temp;
+        for (i = 0; i < (col - 1); i++) {
+            for (j = 0; j < col - i - 1; j++) {
+                if (pass[j] > pass[j + 1]) {
+                    temp = pass[j];
+                    pass[j] = pass[j + 1];
+                    pass[j + 1] = temp;
+                }
+            }
+            passes.add(pass.clone());
+        }
+        
+        row = passes.size();
+
+        int [][] array = new int[row][col];
+        
+        for(i=0;i<row;i++){
+            for(j=0;j<col;j++){
+                array[i][j] = passes.get(i)[j];
+            }
+        }
+        
+        return array;
+    }
+    
+    /**
+     * 
      * @param panel the JPanel that the components will be added to
      * @param passes the values we need to add to the components
      */
@@ -334,13 +668,12 @@ public class MainUI extends javax.swing.JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         
         int row = passes.length;
-        int col = passes[1].length;
+        int col = passes[0].length;
         JLabel label;
         javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK);
         gbc.insets = new Insets(4,4,4,4);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         //gbc.anchor = GridBagConstraints.NORTHWEST;
-        
         gbc.gridx = 0;
         gbc.gridy = 0;
         label = new JLabel("Passes");
@@ -381,6 +714,56 @@ public class MainUI extends javax.swing.JFrame {
         insertValue(newLbl, valuesPane, valuesGBC);
         valuesPane.revalidate();
         valuesPane.repaint();
+    }
+    
+    public void refresh(){
+        revalidate();
+        repaint();
+    }
+    
+    public void showCard(JPanel panel, String cardID){
+        CardLayout card = (CardLayout) panel.getLayout();
+        card.show(panel, cardID);
+        
+        refresh();
+    }
+    
+    public void hashPassword(){
+        hash = Hashing.getMd5(passFld.getPassword());
+        hashLbl.setText(hash);
+    }
+    
+    public String getPlain(String md5){
+        String bruteforce;
+        
+        int[] array;
+        StringBuilder permute = new StringBuilder(" ");
+        Base26 num = new Base26();
+        String lines = new String("MD5 HASH\tPLAINTEXT\n");
+        do{
+            
+            array = num.toIntArray();
+            for (int i = 0; i < array.length; i++) {
+                permute.setCharAt(i, Hashing.ALPHABET.charAt(array[i]));
+            }
+            bruteforce = Hashing.getMd5(permute.toString());
+            lines += (String.format("%s\t%s\n",bruteforce,permute.toString()));
+            System.out.printf("%s\t%s\n",bruteforce,permute.toString());
+            num.increment();
+            
+            if(num.length() > permute.length()){
+                permute.append(" ");
+            }
+        }
+        while(!bruteforce.equals(md5));
+        displayArea.setText("");
+        displayArea.append(lines);
+        JOptionPane.showMessageDialog(rootPane, 
+                String.format("The plain text of %s\nis: %s",
+                        md5, permute.toString()),
+                        "Done!", 
+                        JOptionPane.INFORMATION_MESSAGE);
+        return permute.toString();
     }
     
     public static void print2d(int[][] array){
@@ -445,27 +828,45 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar aboutBar;
-    private javax.swing.JMenu aboutItem;
     private javax.swing.JTabbedPane algoPane;
+    private javax.swing.JButton bruteforceBackBtn;
+    private javax.swing.JPanel bruteforcePanel;
     private javax.swing.JPanel bubblePane;
     private javax.swing.JScrollPane bubbleScroll;
+    private javax.swing.JPanel cardPanel;
     private javax.swing.JButton clearBtn;
     private javax.swing.JPanel combPane;
     private javax.swing.JScrollPane combScroll;
+    private javax.swing.JButton crackBtn;
+    private javax.swing.JTextArea displayArea;
+    private javax.swing.JScrollPane displayScroll;
+    private javax.swing.JLabel hashLbl;
     private javax.swing.JTextField inputFld;
     private javax.swing.JLabel inputLbl;
     private javax.swing.JButton insertBtn;
     private javax.swing.JPanel insertionPane;
     private javax.swing.JScrollPane insertionScroll;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel md5HashLbl;
+    private javax.swing.JPasswordField passFld;
+    private javax.swing.JLabel passLbl;
     private javax.swing.JPanel selectionPane;
     private javax.swing.JScrollPane selectionScroll;
     private javax.swing.JButton sortBtn;
+    private javax.swing.JButton sortingBackBtn;
+    private javax.swing.JPanel sortingPanel;
+    private javax.swing.JButton titleBruteforceBtn;
+    private javax.swing.JLabel titleLbl;
+    private javax.swing.JLabel titleLbl1;
+    private javax.swing.JLabel titleLbl2;
+    private javax.swing.JLabel titleLbl3;
+    private javax.swing.JLabel titleLbl4;
+    private javax.swing.JLabel titleLbl5;
+    private javax.swing.JLabel titleLbl6;
+    private javax.swing.JLabel titleLbl7;
+    private javax.swing.JPanel titlePanel;
+    private javax.swing.JButton titleSortingBtn;
     private javax.swing.JPanel valuesPane;
     private javax.swing.JScrollPane valuesScroll;
     // End of variables declaration//GEN-END:variables
