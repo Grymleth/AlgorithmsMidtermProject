@@ -2,7 +2,6 @@
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -31,7 +30,7 @@ public class MainUI extends javax.swing.JFrame {
     private final ArrayList<Integer> values;
     private String hash;
     //GridBagConstraints for values panel
-    private GridBagConstraints valuesGBC;
+    private final GridBagConstraints valuesGBC;
     
     /**
      * Creates new form MainUI
@@ -503,7 +502,7 @@ public class MainUI extends javax.swing.JFrame {
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         values.removeAll(values);
         valuesGBC.gridy=0;
-        valuesGBC.gridx=0;
+        valuesGBC.gridx=-1;
         valuesPane.removeAll();
         valuesPane.setLayout(new java.awt.GridBagLayout());
         
@@ -534,6 +533,10 @@ public class MainUI extends javax.swing.JFrame {
 
                 layoutSortPanel(bubblePane, passes);
                 print2d(passes);
+            } else if(selectionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
+                passes = getSelection(values, order);
+                layoutSortPanel(selectionPane, passes);
+                print2d(passes);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(rootPane,
@@ -541,7 +544,6 @@ public class MainUI extends javax.swing.JFrame {
                     "No Input",
                     JOptionPane.ERROR_MESSAGE);
         }
-        
         
         revalidate();
         repaint();
@@ -579,7 +581,6 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_passFldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        passFld.setText("");
         hashPassword();
         refresh();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -660,6 +661,68 @@ public class MainUI extends javax.swing.JFrame {
         }
         
         
+        row = passes.size();
+
+        int [][] array = new int[row][col];
+        
+        for(i=0;i<row;i++){
+            for(j=0;j<col;j++){
+                array[i][j] = passes.get(i)[j];
+            }
+        }
+        
+        return array;
+    }
+    /**
+     * 
+     * @param values array of values to be sorted 
+     * @param order determines whether ascending or descending
+     * @return a 2d array that contains all the selection sort passes
+     */
+    public int[][] getSelection(ArrayList<Integer> values, boolean order){
+        final int col = values.size();
+        int row;
+        Integer [] pass = new Integer[col];
+        
+        for (int i = 0; i < col; i++) {
+            pass[i] = values.get(i);
+        }
+        
+        ArrayList<Integer[]> passes = new ArrayList<>();
+        
+        int i=0, j=0, temp=0, min=0;
+        if(order){
+            for (i = 0; i < col - 1; i++) {
+                min = i;
+                for (j = i + 1; j < col; j++) {
+                    if (pass[j] < pass[min]) {
+                        min = j;
+                    }
+                }
+                temp = pass[min];
+                pass[min] = pass[i];
+                pass[i] = temp;
+
+                passes.add(pass.clone());
+            }
+        }
+        else{
+            for (i = 0; i < col - 1; i++) {
+                min = i;
+                for (j = i + 1; j < col; j++) {
+                    if (pass[j] > pass[min]) {
+                        min = j;
+                    }
+                }
+                temp = pass[min];
+                pass[min] = pass[i];
+                pass[i] = temp;
+
+                passes.add(pass.clone());
+            }
+        }
+        
+
         row = passes.size();
 
         int [][] array = new int[row][col];
@@ -844,11 +907,12 @@ public class MainUI extends javax.swing.JFrame {
     public void hashPassword(){
         try{
             char[] password = passFld.getPassword();
+            passFld.setText("");
             for (int i = 0; i < password.length; i++) {
                 if(password[i] < 65 && password[i] > 90)
                     throw new NotAlphabetException();
             }
-            hash = Hashing.getMd5(passFld.getPassword());
+            hash = Hashing.getMd5(password);
             hashLbl.setText(hash);
         }
         catch(NotAlphabetException e){
@@ -858,6 +922,7 @@ public class MainUI extends javax.swing.JFrame {
                     "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
         }
+        
     }
     
     public String getPlain(String md5){
@@ -865,7 +930,7 @@ public class MainUI extends javax.swing.JFrame {
         int[] array;
         StringBuilder permute = new StringBuilder(" ");
         Base26 num = new Base26();
-        String lines = new String("MD5 HASH\t\t\t\tPLAINTEXT\n");
+        String lines = "MD5 HASH\t\t\t\tPLAINTEXT\n";
         do{
             
             array = num.toIntArray();
