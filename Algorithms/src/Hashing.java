@@ -2,9 +2,19 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Static class used for hashing passwords
+ */
 public class Hashing {
-    static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    static final int N = 26;
+    static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";            // the alphabet that the bruteforce algo is based on
+    static final int N = ALPHABET.length();                                 // size of the alphabet
+    
+    /**
+     * returns the MD5 hash of a the string 
+     * @param input the plain text string
+     * @return the MD5 hash of the input
+     * @throws RuntimeException 
+     */
     public static String getMd5(String input) throws RuntimeException{
         try{
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -23,6 +33,12 @@ public class Hashing {
         }
     }
     
+    /**
+     * Returns the MD5 hash of a char array
+     * @param input the plain text char array
+     * @return the MD5 hash of the input
+     * @throws RuntimeException 
+     */
     public static String getMd5(char[] input) throws RuntimeException{
         try{
             StringBuilder plainText = new StringBuilder("");
@@ -46,6 +62,11 @@ public class Hashing {
         }
     }
     
+    /**
+     * Finds and returns the plain text of the MD5 hash string
+     * @param md5 the MD5 hash
+     * @return the equivalent plain text string
+     */
     public static String getPlain(String md5){
         String bruteforce;
         

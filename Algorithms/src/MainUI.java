@@ -67,7 +67,6 @@ public class MainUI extends javax.swing.JFrame {
         titleLbl7 = new javax.swing.JLabel();
         titleSortingBtn = new javax.swing.JButton();
         titleBruteforceBtn = new javax.swing.JButton();
-        titleLbl8 = new javax.swing.JLabel();
         sortingPanel = new javax.swing.JPanel();
         valuesScroll = new javax.swing.JScrollPane();
         valuesPane = new javax.swing.JPanel();
@@ -97,9 +96,10 @@ public class MainUI extends javax.swing.JFrame {
         passLbl = new javax.swing.JLabel();
         passFld = new javax.swing.JPasswordField();
         bruteforceBackBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        bruteForceConfirmBtn = new javax.swing.JButton();
+        bruteForceTitleLbl = new javax.swing.JLabel();
+        descScroll = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,9 +159,6 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        titleLbl8.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        titleLbl8.setText("Candelaria, Aevan");
-
         javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
         titlePanel.setLayout(titlePanelLayout);
         titlePanelLayout.setHorizontalGroup(
@@ -196,11 +193,6 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(92, 92, 92)
                         .addComponent(titleLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(93, Short.MAX_VALUE))
-            .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(titlePanelLayout.createSequentialGroup()
-                    .addGap(50, 50, 50)
-                    .addComponent(titleLbl8, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(488, Short.MAX_VALUE)))
         );
         titlePanelLayout.setVerticalGroup(
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +203,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(titleSortingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(titleBruteforceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
                 .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLbl5)
                     .addComponent(titleLbl6))
@@ -226,11 +218,6 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(titleLbl4)
                 .addGap(51, 51, 51))
-            .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
-                    .addContainerGap(579, Short.MAX_VALUE)
-                    .addComponent(titleLbl8)
-                    .addGap(147, 147, 147)))
         );
 
         cardPanel.add(titlePanel, "TITLE");
@@ -437,22 +424,23 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("CONFIRM");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bruteForceConfirmBtn.setText("CONFIRM");
+        bruteForceConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bruteForceConfirmBtnActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel1.setText("BRUTE FORCE ATTACK");
+        bruteForceTitleLbl.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        bruteForceTitleLbl.setText("BRUTE FORCE ATTACK");
 
-        jTextField1.setText("Bruteforce attack ");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Enter the password that will be\nturned into hash.\nRecommended max char: 3\n(Anything more will be too slow)");
+        descScroll.setViewportView(jTextArea1);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setEditable(false);
 
         javax.swing.GroupLayout bruteforcePanelLayout = new javax.swing.GroupLayout(bruteforcePanel);
         bruteforcePanel.setLayout(bruteforcePanelLayout);
@@ -467,44 +455,39 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bruteforcePanelLayout.createSequentialGroup()
-                                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(md5HashLbl)
-                                    .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(68, 68, 68)
-                                .addComponent(hashLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 282, Short.MAX_VALUE))
-                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
                                 .addComponent(passLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(passFld, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(bruteForceConfirmBtn))
+                            .addComponent(bruteForceTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(descScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(bruteforcePanelLayout.createSequentialGroup()
+                                .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(md5HashLbl)
+                                    .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(48, 48, 48)
+                                .addComponent(hashLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(bruteforcePanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(38, 682, Short.MAX_VALUE)
                 .addComponent(bruteforceBackBtn)
                 .addGap(26, 26, 26))
-            .addGroup(bruteforcePanelLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bruteforcePanelLayout.setVerticalGroup(
             bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bruteforcePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(bruteforceBackBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(bruteforceBackBtn)
+                    .addComponent(bruteForceTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(descScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(bruteforcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(bruteforcePanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(bruteForceConfirmBtn)
                         .addGap(18, 18, 18)
                         .addComponent(hashLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bruteforcePanelLayout.createSequentialGroup()
@@ -516,8 +499,8 @@ public class MainUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(crackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(displayScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(displayScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
 
         cardPanel.add(bruteforcePanel, "BRUTEFORCE");
@@ -562,19 +545,18 @@ public class MainUI extends javax.swing.JFrame {
         try {
             if (insertionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))) {
                 passes = getInsertion(values, order);
-
                 layoutSortPanel(insertionPane, passes);
-                print2d(passes);
             } else if (bubbleScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))) {
                 passes = getBubble(values, order);
-
                 layoutSortPanel(bubblePane, passes);
-                print2d(passes);
             } else if(selectionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
                 passes = getSelection(values, order);
                 layoutSortPanel(selectionPane, passes);
-                print2d(passes);
+            } else if(combScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
+                passes = getComb(values, order);
+                layoutSortPanel(combPane, passes);
             }
+            
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(rootPane,
                     "Please, enter values before sorting",
@@ -617,20 +599,17 @@ public class MainUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_passFldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bruteForceConfirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bruteForceConfirmBtnActionPerformed
         hashPassword();
         refresh();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bruteForceConfirmBtnActionPerformed
 
     private void descendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descendingBtnActionPerformed
         
     }//GEN-LAST:event_descendingBtnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     /**
+     * Inserts the value to a container as a JLabel with a specific constraints
      * @param label the label to be added to the container
      * @param container the container that will receive the label
      * @param gbc the constraints for GridBagLayout
@@ -649,7 +628,7 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Returns the passes of insertion sort as a 2D array
      * @param values array of values to be sorted 
      * @param order determines whether ascending or descending
      * @return a 2d array that contains all the insertion sort passes
@@ -700,8 +679,6 @@ public class MainUI extends javax.swing.JFrame {
                 printArray(pass);
             } 
         }
-        
-        
         row = passes.size();
 
         int [][] array = new int[row][col];
@@ -715,7 +692,7 @@ public class MainUI extends javax.swing.JFrame {
         return array;
     }
     /**
-     * 
+     * Returns the passes of selection sort as a 2D array
      * @param values array of values to be sorted 
      * @param order determines whether ascending or descending
      * @return a 2d array that contains all the selection sort passes
@@ -778,7 +755,7 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Returns the passes of bubble sort as a 2D array
      * @param values array of values to be sorted 
      * @param order determines if descending or ascending
      * @return a 2d array that contains all the bubble sort passes
@@ -844,7 +821,107 @@ public class MainUI extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Helper function returns the next gap value that the comb sort will use
+     * @param gap the current gap value of the comb sort
+     * @return the next gap value of the comb sort
+     */
+    public int getNextGap(int gap) {
+        gap = (gap * 10) / 13;
+        if (gap < 1) {
+            return 1;
+        }
+        return gap;
+    }
+
+    /**
+     * Returns the passes of comb sort as a 2D array
+     * @param values array of values to be sorted 
+     * @param order determines if descending or ascending
+     * @return a 2d array that contains all the comb sort passes
+     */
+    public int[][] getComb(ArrayList<Integer> values, boolean order) {
+        final int col = values.size();
+        int row;
+        Integer[] pass = new Integer[col];
+
+        for (int i = 0; i < col; i++) {
+            pass[i] = values.get(i);
+        }
+
+        ArrayList<Integer[]> passes = new ArrayList<>();
+
+        int i, j, temp;
+
+        int n = col;
+
+        int gap = n;
+        boolean swapped = true;
+
+        if (order) {
+
+            // Keep running while gap is more than 1 and last 
+            // iteration caused a swap 
+            while (gap != 1 || swapped == true) {
+                gap = getNextGap(gap);
+
+                // Initialize swapped as false so that we can 
+                // check if swap happened or not 
+                swapped = false;
+
+                // Compare all elements with current gap 
+                for (i = 0; i < n - gap; i++) {
+                    if (pass[i] > pass[i + gap]) {
+                        // Swap arr[i] and arr[i+gap] 
+
+                        temp = pass[i];
+                        pass[i] = pass[i + gap];
+                        pass[i + gap] = temp;
+
+                        passes.add(pass.clone());
+                        printArray(pass);
+
+                        // Set swapped 
+                        swapped = true;
+                    }
+                }
+
+            }
+        } else {
+            while (gap != 1 || swapped == true) {
+                gap = getNextGap(gap);
+                swapped = false;
+
+                for (i = 0; i < n - gap; i++) {
+                    if (pass[i] < pass[i + gap]) {
+
+                        temp = pass[i];
+                        pass[i] = pass[i + gap];
+                        pass[i + gap] = temp;
+
+                        passes.add(pass.clone());
+                        printArray(pass);
+                        swapped = true;
+                    }
+                }
+
+            }
+        }
+
+        row = passes.size();
+
+        int[][] array = new int[row][col];
+
+        for (i = 0; i < row; i++) {
+            for (j = 0; j < col; j++) {
+                array[i][j] = passes.get(i)[j];
+            }
+        }
+
+        return array;
+    }
+    
+    /**
+     * Layouts the given panel using 2D array as values for the JLabels
      * @param panel the JPanel that the components will be added to
      * @param passes the values we need to add to the components
      */
@@ -909,6 +986,9 @@ public class MainUI extends javax.swing.JFrame {
         refresh();
     }
     
+    /**
+     * Inserts a value from the input field to the valuePane as a JLabel
+     */
     public void addValue(){
         Integer newValue;
         JLabel newLbl;
@@ -933,6 +1013,9 @@ public class MainUI extends javax.swing.JFrame {
         valuesPane.repaint();
     }
     
+    /**
+     * Refreshes the current JFrame
+     */
     public void refresh(){
         revalidate();
         repaint();
@@ -945,6 +1028,10 @@ public class MainUI extends javax.swing.JFrame {
         refresh();
     }
     
+    /**
+     * Hashes the password in the password field and
+     * stores it in the JLabel
+     */
     public void hashPassword(){
         try{
             char[] password = passFld.getPassword();
@@ -966,6 +1053,11 @@ public class MainUI extends javax.swing.JFrame {
         
     }
     
+    /**
+     * Retrieves the plain text of the given MD5 hash
+     * @param md5 the MD5 hash to be brute forced
+     * @return the plain text string
+     */
     public String getPlain(String md5){
         String bruteforce;
         int[] array;
@@ -998,6 +1090,11 @@ public class MainUI extends javax.swing.JFrame {
         return permute.toString();
     }
     
+    /**
+     * functions used to display the arrays
+     * can be removed
+     * @param array 
+     */
     public static void print2d(int[][] array){
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
@@ -1062,6 +1159,8 @@ public class MainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane algoPane;
     private javax.swing.JRadioButton ascendingBtn;
+    private javax.swing.JButton bruteForceConfirmBtn;
+    private javax.swing.JLabel bruteForceTitleLbl;
     private javax.swing.JButton bruteforceBackBtn;
     private javax.swing.JPanel bruteforcePanel;
     private javax.swing.JPanel bubblePane;
@@ -1071,6 +1170,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel combPane;
     private javax.swing.JScrollPane combScroll;
     private javax.swing.JButton crackBtn;
+    private javax.swing.JScrollPane descScroll;
     private javax.swing.JRadioButton descendingBtn;
     private javax.swing.JTextArea displayArea;
     private javax.swing.JScrollPane displayScroll;
@@ -1080,10 +1180,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton insertBtn;
     private javax.swing.JPanel insertionPane;
     private javax.swing.JScrollPane insertionScroll;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel md5HashLbl;
     private javax.swing.ButtonGroup orderBtnGroup;
     private javax.swing.JPasswordField passFld;
@@ -1102,7 +1200,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel titleLbl5;
     private javax.swing.JLabel titleLbl6;
     private javax.swing.JLabel titleLbl7;
-    private javax.swing.JLabel titleLbl8;
     private javax.swing.JPanel titlePanel;
     private javax.swing.JButton titleSortingBtn;
     private javax.swing.JPanel valuesPane;
