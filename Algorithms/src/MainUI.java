@@ -1,9 +1,13 @@
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -53,13 +57,13 @@ public class MainUI extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jLabel1 = new javax.swing.JLabel();
         algoPane = new javax.swing.JTabbedPane();
-        selectionPane = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        cmdPane = new javax.swing.JTextArea();
+        insertionScroll = new javax.swing.JScrollPane();
         insertionPane = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        mergePane = new javax.swing.JPanel();
+        combScroll = new javax.swing.JScrollPane();
+        combPane = new javax.swing.JPanel();
+        selectionScroll = new javax.swing.JScrollPane();
+        selectionPane = new javax.swing.JPanel();
+        bubbleScroll = new javax.swing.JScrollPane();
         bubblePane = new javax.swing.JPanel();
         inputLbl = new javax.swing.JLabel();
         inputFld = new javax.swing.JTextField();
@@ -85,83 +89,73 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmdPane.setColumns(20);
-        cmdPane.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
-        cmdPane.setRows(5);
-        jScrollPane3.setViewportView(cmdPane);
-        cmdPane.setLineWrap(true);
-        cmdPane.setEditable(true);
+        javax.swing.GroupLayout insertionPaneLayout = new javax.swing.GroupLayout(insertionPane);
+        insertionPane.setLayout(insertionPaneLayout);
+        insertionPaneLayout.setHorizontalGroup(
+            insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 575, Short.MAX_VALUE)
+        );
+        insertionPaneLayout.setVerticalGroup(
+            insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        insertionScroll.setViewportView(insertionPane);
+
+        algoPane.addTab("Insertion Sort", insertionScroll);
+
+        javax.swing.GroupLayout combPaneLayout = new javax.swing.GroupLayout(combPane);
+        combPane.setLayout(combPaneLayout);
+        combPaneLayout.setHorizontalGroup(
+            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 575, Short.MAX_VALUE)
+        );
+        combPaneLayout.setVerticalGroup(
+            combPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        combScroll.setViewportView(combPane);
+
+        algoPane.addTab("Comb Sort", combScroll);
 
         javax.swing.GroupLayout selectionPaneLayout = new javax.swing.GroupLayout(selectionPane);
         selectionPane.setLayout(selectionPaneLayout);
         selectionPaneLayout.setHorizontalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(selectionPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 575, Short.MAX_VALUE)
         );
         selectionPaneLayout.setVerticalGroup(
             selectionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(selectionPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
-        algoPane.addTab("Selection Sort", selectionPane);
+        selectionScroll.setViewportView(selectionPane);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setEditable(false);
-
-        javax.swing.GroupLayout insertionPaneLayout = new javax.swing.GroupLayout(insertionPane);
-        insertionPane.setLayout(insertionPaneLayout);
-        insertionPaneLayout.setHorizontalGroup(
-            insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(insertionPaneLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        insertionPaneLayout.setVerticalGroup(
-            insertionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(insertionPaneLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-
-        algoPane.addTab("Insertion Sort", insertionPane);
-
-        javax.swing.GroupLayout mergePaneLayout = new javax.swing.GroupLayout(mergePane);
-        mergePane.setLayout(mergePaneLayout);
-        mergePaneLayout.setHorizontalGroup(
-            mergePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
-        );
-        mergePaneLayout.setVerticalGroup(
-            mergePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
-        );
-
-        algoPane.addTab("Merge Sort", mergePane);
+        algoPane.addTab("Selection Sort", selectionScroll);
 
         javax.swing.GroupLayout bubblePaneLayout = new javax.swing.GroupLayout(bubblePane);
         bubblePane.setLayout(bubblePaneLayout);
         bubblePaneLayout.setHorizontalGroup(
             bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
         bubblePaneLayout.setVerticalGroup(
             bubblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
-        algoPane.addTab("Bubble Sort", bubblePane);
+        bubbleScroll.setViewportView(bubblePane);
+
+        algoPane.addTab("Bubble Sort", bubbleScroll);
 
         inputLbl.setText("Input:");
+
+        inputFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputFldKeyPressed(evt);
+            }
+        });
 
         insertBtn.setText("INSERT");
         insertBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -207,11 +201,9 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(clearBtn)
                 .addGap(18, 18, 18)
                 .addComponent(sortBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
             .addComponent(valuesScroll)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(algoPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,8 +218,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(valuesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(algoPane, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(algoPane, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,60 +228,34 @@ public class MainUI extends javax.swing.JFrame {
         valuesGBC.gridy=0;
         valuesGBC.gridx=0;
         valuesPane.removeAll();
-        cmdPane.setText("");
         valuesPane.setLayout(new java.awt.GridBagLayout());
         valuesPane.revalidate();
         valuesPane.repaint();
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void insertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertBtnActionPerformed
-        Integer newValue = Integer.parseInt(inputFld.getText());
-        JLabel newLbl = new JLabel(newValue.toString());
-        values.add(newValue);
-        inputFld.setText("");
-        
-        System.out.println("Grid X: " + valuesGBC.gridx);
-        insertValue(newLbl, valuesPane, valuesGBC);
-        valuesPane.revalidate();
-        valuesPane.repaint();
+        addValue();
     }//GEN-LAST:event_insertBtnActionPerformed
 
     private void sortBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBtnActionPerformed
-        if(selectionPane.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
-            cmdPane.setText("");
-            int i;
-            int j;
-            int temp;
-            int num = values.size();
-            int array[] = new int[num];
-            String line = "";
-            for (i = 0; i < num; i++) {
-                array[i] = values.get(i);
-            }
-
-            for (i = 0; i < (num - 1); i++) {
-                for (j = 0; j < num - i - 1; j++) {
-                    if (array[j] > array[j + 1]) {
-                        temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
-                    }
-                }
-
-                for (int l = 0; l < num; l++) {
-                    line += " " + array[l];
-                }
-                line+="\n";
-                cmdPane.append(line);
-            }
-
-            System.out.println("Sorted list of integers:");
-
-            for (i = 0; i < num; i++)
-                System.out.println(array[i]);
-            }
+        int[][] passes;
+        
+        if(insertionScroll.equals(algoPane.getComponent(algoPane.getSelectedIndex()))){
+            passes = getInsertion(values);
+            
+            layoutSortPanel(insertionPane, passes);
+            print2d(passes);
+            insertionPane.revalidate();
+            insertionPane.repaint();
+        }
+            
         
     }//GEN-LAST:event_sortBtnActionPerformed
+
+    private void inputFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputFldKeyPressed
+        if(evt.getKeyChar() == '\n')
+            addValue();
+    }//GEN-LAST:event_inputFldKeyPressed
 
     /**
      * @param label the label to be added to the container
@@ -308,6 +273,140 @@ public class MainUI extends javax.swing.JFrame {
         }
         
         container.add(label,gbc);
+    }
+    
+    /**
+     * 
+     * @param values array of values to be sorted
+     * @return a 2d array that contains all the algorithms passes
+     */
+    public int[][] getInsertion(ArrayList<Integer> values){
+        final int col = values.size();
+        int row;
+        Integer [] pass = new Integer[col];
+        
+        for (int i = 0; i < col; i++) {
+            pass[i] = values.get(i);
+        }
+        
+        ArrayList<Integer[]> passes = new ArrayList<>();
+        
+        int i, j, temp;
+
+        for (i = 1; i < col; ++i) { 
+            temp = pass[i]; 
+            j = i - 1; 
+  
+            /* Move elements of arr[0..i-1], that are 
+               greater than key, to one position ahead 
+               of their current position */
+            while (j >= 0 && pass[j] > temp) { 
+                pass[j + 1] = pass[j]; 
+                j = j - 1; 
+            } 
+            pass[j + 1] = temp; 
+            passes.add(pass.clone());
+            printArray(pass);
+        } 
+        
+        row = passes.size();
+
+        int [][] array = new int[row][col];
+        
+        for(i=0;i<row;i++){
+            for(j=0;j<col;j++){
+                array[i][j] = passes.get(i)[j];
+            }
+        }
+        
+        return array;
+    }
+    
+    /**
+     * 
+     * @param panel the JPanel that the components will be added to
+     * @param passes the values we need to add to the components
+     */
+    public void layoutSortPanel(JPanel panel, int[][] passes){
+        JPanel values;
+        panel.removeAll();
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        
+        int row = passes.length;
+        int col = passes[1].length;
+        JLabel label;
+        javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK);
+        gbc.insets = new Insets(4,4,4,4);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        //gbc.anchor = GridBagConstraints.NORTHWEST;
+        
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        label = new JLabel("Passes");
+        panel.add(label);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        label = new JLabel("Values");
+        panel.add(label ,gbc);
+        
+        for(int i=0;i<row;i++){
+            gbc.weightx = 0;
+            gbc.weighty = 0;
+            gbc.gridx = 0;
+            gbc.gridy += 1;
+            label = new JLabel("Pass "+(i+1)+": ");
+            panel.add(label,gbc);
+            values = new JPanel();
+            gbc.weightx = 1;
+            gbc.weighty = 1;
+            for(int j=0;j<col;j++){
+                label = new JLabel(""+passes[i][j]);
+                values.add(label);
+            }
+            values.revalidate();
+            values.repaint();
+            values.setBorder(border);
+            gbc.gridx = 1;
+            panel.add(values,gbc);
+        }
+    }
+    
+    public void addValue(){
+        Integer newValue = Integer.parseInt(inputFld.getText());
+        JLabel newLbl = new JLabel(newValue.toString());
+        values.add(newValue);
+        inputFld.setText("");
+        System.out.println("Grid X: " + valuesGBC.gridx);
+        insertValue(newLbl, valuesPane, valuesGBC);
+        valuesPane.revalidate();
+        valuesPane.repaint();
+    }
+    
+    public static void print2d(int[][] array){
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                System.out.printf("%d, ",array[i][j]);
+                
+            }
+            System.out.println("");
+        }
+    }
+    
+    public static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+            
+        }
+        System.out.println("");
+    }
+    
+    public static void printArray(Integer[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+            
+        }
+        System.out.println("");
     }
     
     /**
@@ -350,22 +449,22 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JMenu aboutItem;
     private javax.swing.JTabbedPane algoPane;
     private javax.swing.JPanel bubblePane;
+    private javax.swing.JScrollPane bubbleScroll;
     private javax.swing.JButton clearBtn;
-    private javax.swing.JTextArea cmdPane;
+    private javax.swing.JPanel combPane;
+    private javax.swing.JScrollPane combScroll;
     private javax.swing.JTextField inputFld;
     private javax.swing.JLabel inputLbl;
     private javax.swing.JButton insertBtn;
     private javax.swing.JPanel insertionPane;
+    private javax.swing.JScrollPane insertionScroll;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JPanel mergePane;
     private javax.swing.JPanel selectionPane;
+    private javax.swing.JScrollPane selectionScroll;
     private javax.swing.JButton sortBtn;
     private javax.swing.JPanel valuesPane;
     private javax.swing.JScrollPane valuesScroll;
