@@ -61,8 +61,25 @@ public class Base26 {
         return array;
     }
     
+    public void print(){
+        for(int x: digit){
+            System.out.print(x + ", ");
+        }
+        System.out.println("");
+    }
+    
     public int length(){
         return length;
+    }
+    
+    public static void main(String[] args) {
+        Base26 x = new Base26();
+        
+        for (int i = 0; i < 100;i++) {
+            x.print();
+            x.increment();
+            
+        }
     }
     
 }

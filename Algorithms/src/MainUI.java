@@ -1063,7 +1063,7 @@ public class MainUI extends javax.swing.JFrame {
         int[] array;
         StringBuilder permute = new StringBuilder(" ");
         Base26 num = new Base26();
-        String lines = "MD5 HASH\t\t\t\tPLAINTEXT\n";
+        StringBuilder lines = new StringBuilder("MD5 HASH\t\t\t\tPLAINTEXT\n");
         do{
             
             array = num.toIntArray();
@@ -1071,7 +1071,7 @@ public class MainUI extends javax.swing.JFrame {
                 permute.setCharAt(i, Hashing.ALPHABET.charAt(array[i]));
             }
             bruteforce = Hashing.getMd5(permute.toString());
-            lines += (String.format("%s\t%s\n",bruteforce,permute.toString()));
+            lines.append(String.format("%s\t%s\n",bruteforce,permute.toString()));
             System.out.printf("%s\t%s\n",bruteforce,permute.toString());
             num.increment();
             
@@ -1081,7 +1081,7 @@ public class MainUI extends javax.swing.JFrame {
         }
         while(!bruteforce.equals(md5));
         displayArea.setText("");
-        displayArea.append(lines);
+        displayArea.append(lines.toString());
         JOptionPane.showMessageDialog(rootPane, 
                 String.format("The plain text of %s\nis: %s",
                         md5, permute.toString()),
